@@ -1,8 +1,8 @@
 $main-background: #102027;
+$modal-background: #10202723;
 $main-font-color: #ffffff;
 $font-hover: #cfd8dc;
 $border-color: #80cbc4;
-$input-background-color: #62727b9c;
 
 *{
     margin: 0;
@@ -27,7 +27,7 @@ body{
 }
 
 form{
-    margin-top: 150px;
+    margin-top: 100px;
     margin-bottom: 100px;
 
     input{
@@ -35,7 +35,7 @@ form{
         font-size: 1rem;
         border: 2px solid $border-color;
         border-radius: 10px 0 0 10px;
-        background: $input-background-color;
+        background: $main-background;
         color: $main-font-color;
     }
 
@@ -44,11 +44,12 @@ form{
     }
 
     button{
+        transition: all 0.2s;
         padding: 10px 15px;
         font-size: 1rem;
         position: relative;
         left: -4px;
-        background: $input-background-color;
+        background: $main-background;
         border: 2px solid $border-color;
         border-radius: 0 10px 10px 0;
         border-left: none;
@@ -56,8 +57,10 @@ form{
     }
     
     button:hover{
+        transition: all 0.2s;
         cursor: pointer;
-        color: $font-hover;
+        color: $main-background;
+        background-color: $border-color;
     }
 }
 
@@ -78,5 +81,61 @@ form{
     .remove {
         float: right;
         padding-right: 10px;
+    }
+
+    .remove:hover {
+        cursor: pointer;
+    }
+}
+
+.blur{
+    filter: blur(2px);
+}
+
+
+.modal{
+    display: none;
+    position: fixed;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(136, 136, 136, 0.41);
+    justify-content: center;
+    align-items: center;
+
+    .modal-message{
+        width: 300px;
+        height: 200px;
+        padding: 30px;
+        border-radius: 10px;
+        background-color: $main-background;
+        color: $main-font-color;
+
+        button{
+        transition: all 0.2s;
+        font-size: 1.2rem;
+        padding: 5px 10px; 
+        background: $main-background;
+        border: 2px solid $border-color;
+        border-radius: 10px;
+        color: $main-font-color;
+        }
+
+        button:hover{
+            transition: all 0.2s;
+            background: $border-color;
+            color: $main-background;
+            cursor: pointer;
+        }
+
+        button:last-child{
+            float: right;
+        }
+
+        form{
+            display: inline;
+        }
     }
 }

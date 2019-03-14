@@ -1,25 +1,38 @@
 {% extends 'base.html' %}
 {% block content %}
-<form action="app.py" method="POST">
-    <input type="text" placeholder="Choose city.." name="city">
-    <button type="submit">Search</button>
-</form>
-<div class="city-container">
-    <span>&#9928</span>
-    <span class="city-temp">27 &#176 C</span>
-    <span class="city-name">Rzeszów</span>
-    <span class="remove">&#10006</span>
-</div>
-<div class="city-container">
-    <span>&#9928</span>
-    <span class="city-temp">35 &#176 C</span>
-    <span class="city-name">Warszawa</span>
-    <span class="remove">&#10006</span>
-</div>
-<div class="city-container">
-    <span>&#9928</span>
-    <span class="city-temp">12 &#176 C</span>
-    <span class="city-name">Kraków</span>
-    <span class="remove">&#10006</span>
+<main id="main-container" class="container">
+    <form action="" method="POST">
+        <input type="text" placeholder="Choose a city in Poland.." name="city" required>
+        <button type="submit">Search</button>
+    </form>
+    <div class="city-container">
+        <span>&#9928</span>
+        <span class="city-temp">27 &#176 C</span>
+        <span class="city-name">{{city|capitalize}} {{ modal_form }}</span>
+        <span class="remove">&#10006</span>
+    </div>
+    <div class="city-container">
+        <span>&#9928</span>
+        <span class="city-temp">35 &#176 C</span>
+        <span class="city-name">Warszawa</span>
+        <span class="remove">&#10006</span>
+    </div>
+    <div class="city-container">
+        <span>&#9928</span>
+        <span class="city-temp">12 &#176 C</span>
+        <span class="city-name">Kraków</span>
+        <span class="remove">&#10006</span>
+    </div>
+</main>
+<div id="modal" class="modal">
+    <div class="modal-message">
+        Are you sure you want to delete this city?
+        <br> <br> <br>
+        <form action="" method="POST">
+            <button>Yes, delete</button>
+            <input type="hidden" name="modal_form" value="City deleted">
+        </form>
+        <button>No</button>
+    </div>  
 </div>
 {% endblock %}
