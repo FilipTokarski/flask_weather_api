@@ -1,38 +1,35 @@
 {% extends 'base.html' %}
 {% block content %}
 <main id="main-container" class="container">
-    <form action="" method="POST">
-        <input type="text" placeholder="Choose a city in Poland.." name="city" required>
+    {% if message %}
+    <h3>{{message}}</h3>
+    {% endif %}
+    <form action="{{ url_for('home')}}" method="POST">
+        <input type="text" placeholder="Choose a city.." name="city" required>
         <button type="submit">Search</button>
     </form>
+    {% if context is defined %}
     <div class="city-container">
-        <span>&#9928</span>
-        <span class="city-temp">27 &#176 C</span>
-        <span class="city-name">{{city|capitalize}} {{ modal_form }}</span>
+        <span class="city-temp">{{context.temp}} &#176 C</span>
+        <span class="city-name">{{context.name|capitalize}}</span>
+        <br>
+        <span><img src="http://openweathermap.org/img/w/{{context.icon}}.png" alt="Weather icon"></span>
+        <span><small>{{context.weather}}</small></span>
         <span class="remove">&#10006</span>
     </div>
-    <div class="city-container">
-        <span>&#9928</span>
-        <span class="city-temp">35 &#176 C</span>
-        <span class="city-name">Warszawa</span>
-        <span class="remove">&#10006</span>
-    </div>
-    <div class="city-container">
-        <span>&#9928</span>
-        <span class="city-temp">12 &#176 C</span>
-        <span class="city-name">Kraków</span>
-        <span class="remove">&#10006</span>
-    </div>
+    {% endif %}
 </main>
 <div id="modal" class="modal">
     <div class="modal-message">
         Are you sure you want to delete this city?
         <br> <br> <br>
-        <form action="" method="POST">
-            <button>Yes, delete</button>
-            <input type="hidden" name="modal_form" value="City deleted">
+        <form action="{{ url_for('delete_city')}}" method="POST">
+            <button type="submit">Yes, delete</button>
+            <input type="hidden" name="modal" value="City deleted" required>
         </form>
-        <button>No</button>
+        <button id="modal-button">No</button>
     </div>  
 </div>
 {% endblock %}
+
+<!-- http://openweathermap.org/img/w/10d.png -->

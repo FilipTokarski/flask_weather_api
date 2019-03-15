@@ -68,7 +68,21 @@ form{
     min-width: 300px;
     margin-bottom: 50px; 
     padding-bottom: 10px;
+    padding-top: 8px;
     border-bottom: 2px solid $border-color;
+    background-color: #80cbc470;
+    border-radius: 3px;
+
+    img{
+        height: 30px;
+        position: relative;
+        top: 10px;
+        left: 5px;
+    }
+
+    small{
+        padding-left: 15px;
+    }
 
     .city-temp{
         margin-left: 15px;
@@ -121,6 +135,18 @@ form{
         border: 2px solid $border-color;
         border-radius: 10px;
         color: $main-font-color;
+
+            a{
+            color: $main-font-color;
+            text-decoration: none;
+            }
+
+            a:hover{
+                transition: all 0.2s;
+                background: $border-color;
+                color: $main-background;
+                cursor: pointer;
+            }
         }
 
         button:hover{
