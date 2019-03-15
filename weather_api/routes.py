@@ -2,7 +2,7 @@ from flask import render_template, request, redirect, url_for
 from weather_api import app, db
 from weather_api.models import Cities
 from weather_api.api_request import ApiRequest
-from sqlalchemy import desc
+from time import sleep
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -23,14 +23,17 @@ def home():
 
     elif request.method == 'GET':
         cities = Cities.query.all()
+        cities.reverse()
         return render_template('home.html', context=cities)
 
 
-@app.route('/delete_city', methods=['GET', 'POST'])
-def delete_city():
-    if request.method == 'POST':
-        modal = request.form['modal']
+@app.route('/delete_city/<id>')
+def delete_city(id):
+    try:
+        city = Cities.query.filter_by(id=id).first()
+        db.session.delete(city)
+        db.session.commit()
+        sleep(0.4)
         return redirect('/')
-
-    elif request.method == 'GET':
-        return redirect('/')
+    except:
+        pass

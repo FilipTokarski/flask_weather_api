@@ -31,7 +31,7 @@ form{
     margin-bottom: 100px;
 
     input{
-        padding: 10px 0px 10px 15px;
+        padding: 10px 30px 10px 15px;
         font-size: 1rem;
         border: 2px solid $border-color;
         border-radius: 10px 0 0 10px;
@@ -65,7 +65,7 @@ form{
 }
 
 .city-container{
-    min-width: 300px;
+    min-width: 340px;
     margin-bottom: 50px; 
     padding-bottom: 10px;
     padding-top: 8px;
@@ -96,73 +96,22 @@ form{
     .remove {
         float: right;
         padding-right: 10px;
+
+        a{
+            transition: all 0.1s;
+            color: #061b23bf;
+            text-decoration: none;
+        }
+
+        a:hover{
+            transition: all 0.1s;
+            cursor: pointer;
+            color: #ffffffbd;
+        }
     }
 
-    .remove:hover {
-        cursor: pointer;
-    }
 }
 
 .blur{
     filter: blur(2px);
-}
-
-
-.modal{
-    display: none;
-    position: fixed;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(136, 136, 136, 0.41);
-    justify-content: center;
-    align-items: center;
-
-    .modal-message{
-        width: 300px;
-        height: 200px;
-        padding: 30px;
-        border-radius: 10px;
-        background-color: $main-background;
-        color: $main-font-color;
-
-        button{
-        transition: all 0.2s;
-        font-size: 1.2rem;
-        padding: 5px 10px; 
-        background: $main-background;
-        border: 2px solid $border-color;
-        border-radius: 10px;
-        color: $main-font-color;
-
-            a{
-            color: $main-font-color;
-            text-decoration: none;
-            }
-
-            a:hover{
-                transition: all 0.2s;
-                background: $border-color;
-                color: $main-background;
-                cursor: pointer;
-            }
-        }
-
-        button:hover{
-            transition: all 0.2s;
-            background: $border-color;
-            color: $main-background;
-            cursor: pointer;
-        }
-
-        button:last-child{
-            float: right;
-        }
-
-        form{
-            display: inline;
-        }
-    }
 }
