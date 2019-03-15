@@ -8,15 +8,17 @@
         <input type="text" placeholder="Choose a city.." name="city" required>
         <button type="submit">Search</button>
     </form>
-    {% if context is defined %}
-    <div class="city-container">
-        <span class="city-temp">{{context.temp}} &#176 C</span>
-        <span class="city-name">{{context.name|capitalize}}</span>
-        <br>
-        <span><img src="http://openweathermap.org/img/w/{{context.icon}}.png" alt="Weather icon"></span>
-        <span><small>{{context.weather}}</small></span>
-        <span class="remove">&#10006</span>
-    </div>
+    {% if context %}
+        {% for city in context %}
+        <div class="city-container">
+            <span class="city-temp">{{city.temp}} &#176 C</span>
+            <span class="city-name">{{city.city|capitalize}}</span>
+            <br>
+            <span><img src="http://openweathermap.org/img/w/{{city.icon}}.png" alt="Weather icon"></span>
+            <span><small>{{city.weather}} | {{city.date.strftime('%a, %d %b \'%y, %H:%M')}}</small></span>
+            <span class="remove">&#10006</span>
+        </div>
+        {% endfor %}
     {% endif %}
 </main>
 <div id="modal" class="modal">

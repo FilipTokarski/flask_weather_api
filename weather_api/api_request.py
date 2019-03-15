@@ -13,8 +13,8 @@ class ApiRequest():
     def get_data(self):
         try:
             city_request = requests.get('http://api.openweathermap.org'
-                                        '/data/2.5/forecast?q={}'
-                                        '&APPID=f8d2eb98e626defe7bcc37762d3af2b7'
+                                        '/data/2.5/forecast?q={}&APPID='
+                                        'f8d2eb98e626defe7bcc37762d3af2b7'
                                         .format(self.city))             
             city_json = city_request.json()
             data = {
@@ -29,6 +29,6 @@ class ApiRequest():
                 'name': 'invalid city name',
                 'temp': 0,
                 'icon': '03d',
-                'weather': 'Please try again :)'
+                'weather': 'Please try again'
             }
             return data
