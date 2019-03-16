@@ -1,5 +1,5 @@
 import requests
-from flask import render_template, redirect
+
 
 class ApiRequest():
 
@@ -7,8 +7,8 @@ class ApiRequest():
         self.city = city
 
     def to_celsius(self, temp):
-        celsius = (int(temp) - 273.15)
-        return int(celsius)
+        celsius = int((temp - 273.15))
+        return celsius
 
     def get_data(self):
         try:
@@ -25,10 +25,5 @@ class ApiRequest():
             }
             return data
         except:
-            data = {
-                'name': 'invalid city name',
-                'temp': 0,
-                'icon': '03d',
-                'weather': 'Please try again'
-            }
+            data = "Sorry, unable to get data."
             return data
