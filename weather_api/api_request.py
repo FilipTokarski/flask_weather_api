@@ -18,7 +18,7 @@ class ApiRequest():
         try:
             city_request = requests.get('http://api.openweathermap.org'
                                         '/data/2.5/forecast?q={}&APPID='
-                                        'f8d2eb98e626defe7bcc37762d3af2b7'
+                                        'YOUR OpenWeatherMap API KEY HERE'
                                         .format(self.city))             
             city_json = city_request.json()
             data = {
