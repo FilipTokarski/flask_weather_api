@@ -1,3 +1,4 @@
+''' Making requests and fetching weather data '''
 import requests
 
 
@@ -11,6 +12,9 @@ class ApiRequest():
         return celsius
 
     def get_data(self):
+        ''' Returns dict with data for chosen city (name, temperature, 
+            weather description and icon symbol). 
+            If error returns message (str) '''
         try:
             city_request = requests.get('http://api.openweathermap.org'
                                         '/data/2.5/forecast?q={}&APPID='

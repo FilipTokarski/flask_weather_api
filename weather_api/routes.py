@@ -1,7 +1,7 @@
 from flask import render_template, request, redirect, url_for
 from weather_api import app, db
-from weather_api.models import Cities
-from weather_api.api_request import ApiRequest
+from .models import Cities
+from .api_request import ApiRequest
 from time import sleep
 
 
