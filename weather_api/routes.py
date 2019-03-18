@@ -19,7 +19,7 @@ def home():
                                     weather=api_data['weather']))
                 db.session.commit()
                 cities = Cities.query.all()
-                cities.reverse() #should reverse in query above?
+                cities.reverse()
                 return render_template('home.html', context=cities)
             elif type(api_data) == str:
                 return render_template('home.html', message=api_data)
